@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unity Tutorials - Pricing Plans</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #333 0%, #222 100%);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .plan {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 340px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .plan:hover {
+            transform: translateY(-10px);
+        }
+        
+        .plan-header {
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+        
+        .basic-header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        }
+        
+        .diamond-header {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .diamond-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .plan-name {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .plan-content {
+            padding: 1.5rem;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #444;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li::before {
+            content: "✓";
+            margin-right: 10px;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .button {
+            display: block;
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #2980b9;
+        }
+        
+        .diamond-button {
+            background-color: #9b59b6;
+        }
+        
+        .diamond-button:hover {
+            background-color: #8e44ad;
+        }
+        
+        .highlight {
+            color: #f1c40f;
+            font-weight: 600;
+        }
+        
+        /* Glowing effect for Basic plan */
+        .glowing {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glowing::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(52, 152, 219, 0.3) 0%, rgba(41, 128, 185, 0) 70%);
+            animation: glowing 4s infinite;
+            z-index: -1;
+        }
+        
+        @keyframes glowing {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+        
+        .category-header {
+            font-weight: bold;
+            color: #9b59b6;
+            margin: 15px 0 5px 0;
+            border-bottom: 1px dashed #555;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unity Tutorials</h1>
+        <p>Level up your game development skills with our premium tutorials</p>
+    </header>
+
+    <div class="container">
+        <!-- Basic Plan -->
+        <div class="plan glowing">
+            <div class="plan-header basic-header">
+                <h2 class="plan-name">Basic</h2>
+                <div class="price">$20</div>
+            </div>
+            <div class="plan-content">
+                <ul class="features">
+                    <li><span class="highlight">Glowing effects</span> tutorials</li>
+                    <li>Adding colors and textures</li>
+                    <li>Importing car models</li>
+                    <li>Building fundamentals</li>
+                    <li>Essential Unity workflows</li>
+                    <li>Beginner-friendly projects</li>
+                </ul>
+                <a href="#" class="button">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Diamond Plan -->
+        <div class="plan">
+            <div class="plan-header diamond-header">
+                <h2 class="plan-name">Diamond</h2>
+                <div class="price">$70</div>
+                <p style="margin-top: 5px; font-size: 0.9rem; color: #f1c40f;">JAM-PACKED VALUE!</p>
+            </div>
+            <div class="plan-content">
+                <ul class="features">
+                    <li><span class="highlight">Everything from Basic plan</span></li>
+                    
+                    <li class="category-header">VEHICLE DEVELOPMENT</li>
+                    <li><span class="highlight">Access to 150+ premade car templates</span></li>
+                    <li><span class="highlight">Working vehicle lights & advanced features</span></li>
+                    <li>Vehicle physics and driving mechanics</li>
+                    <li>Advanced vehicle damage systems</li>
+                    <li>Custom vehicle audio implementation</li>
+                    <li>Realistic weather effects on vehicles</li>
+                    <li>Racing game mechanics</li>
+                    <li>Customizable vehicle UI systems</li>
+                    <li>Vehicle AI for racing/traffic</li>
+                    <li>Vehicle customization system</li>
+                    
+                    <li class="category-header">GRAPHICS & VISUALS</li>
+                    <li>Custom shader development</li>
+                    <li>Advanced particle systems</li>
+                    <li>Post-processing effects mastery</li>
+                    <li>Dynamic lighting techniques</li>
+                    <li>Weather system implementation</li>
+                    <li>Day/night cycle creation</li>
+                    <li>Advanced material creation</li>
+                    <li>Environment mapping</li>
+                    <li>Volumetric fog & lighting</li>
+                    <li>Ray tracing optimization</li>
+                    <li>Real-time global illumination</li>
+                    
+                    <li class="category-header">PROGRAMMING & SYSTEMS</li>
+                    <li>Advanced coding techniques</li>
+                    <li>Design pattern implementation</li>
+                    <li>State machine architecture</li>
+                    <li>Behavior trees for advanced AI</li>
+                    <li>Procedural generation techniques</li>
+                    <li>Advanced C# scripting</li>
+                    <li>Memory optimization</li>
+                    <li>Multi-threading in Unity</li>
+                    <li>Scriptable objects mastery</li>
+                    <li>Editor extension development</li>
+                    <li>Custom inspector creation</li>
+                    
+                    <li class="category-header">UI & UX DEVELOPMENT</li>
+                    <li>Complete UI building system</li>
+                    <li>Responsive UI design</li>
+                    <li>Mobile-friendly interfaces</li>
+                    <li>UI animation systems</li>
+                    <li>Menu system architecture</li>
+                    <li>HUD development</li>
+                    <li>UI manager implementation</li>
+                    <li>UI localization system</li>
+                    <li>UI accessibility features</li>
+                    <li>Interactive UI elements</li>
+                    
+                    <li class="category-header">GAMEPLAY MECHANICS</li>
+                    <li>Inventory system creation</li>
+                    <li>Quest system implementation</li>
+                    <li>Dialogue system development</li>
+                    <li>Save/load system</li>
+                    <li>Level progression design</li>
+                    <li>Achievement system</li>
+                    <li>In-game economy systems</li>
+                    <li>Combat system development</li>
+                    <li>Stealth mechanics</li>
+                    <li>Puzzle implementation</li>
+                    
+                    <li class="category-header">MULTIPLAYER & NETWORKING</li>
+                    <li>Multiplayer implementation</li>
+                    <li>Network synchronization</li>
+                    <li>Lobby system creation</li>
+                    <li>Client-server architecture</li>
+                    <li>Photon integration</li>
+                    <li>Mirror framework implementation</li>
+                    <li>Multiplayer game modes</li>
+                    <li>Network security</li>
+                    <li>Multiplayer UI systems</li>
+                    <li>Dedicated server setup</li>
+                    
+                    <li class="category-header">OPTIMIZATION & PERFORMANCE</li>
+                    <li>Performance optimization</li>
+                    <li>Mobile game optimization</li>
+                    <li>LOD system implementation</li>
+                    <li>Asset bundle management</li>
+                    <li>Addressable assets system</li>
+                    <li>Memory profiling</li>
+                    <li>Draw call optimization</li>
+                    <li>CPU & GPU profiling</li>
+                    <li>Loading optimization</li>
+                    <li>Frame rate stabilization</li>
+                    
+                    <li class="category-header">EXTENDED REALITY</li>
+                    <li>VR/AR development fundamentals</li>
+                    <li>XR interaction toolkit</li>
+                    <li>Spatial audio for VR</li>
+                    <li>VR optimization techniques</li>
+                    <li>AR foundation implementation</li>
+                    <li>AR face tracking</li>
+                    <li>Hand tracking in VR</li>
+                    <li>Room-scale VR development</li>
+                    <li>Mixed reality integration</li>
+                    <li>360° video implementation</li>
+                    
+                    <li class="category-header">3D & ENVIRONMENT</li>
+                    <li>3D modeling integration</li>
+                    <li>Environment building masterclass</li>
+                    <li>Terrain system advanced techniques</li>
+                    <li>Vegetation studio integration</li>
+                    <li>Building interior generation</li>
+                    <li>City building tools</li>
+                    <li>Landscape design</li>
+                    <li>Water system implementation</li>
+                    <li>Ecosystem simulation</li>
+                    <li>Dynamic environment interaction</li>
+                    
+                    <li class="category-header">BONUS FEATURES</li>
+                    <li><span class="highlight">1-on-1 support sessions</span></li>
+                    <li>Access to private community forum</li>
+                    <li>Monthly exclusive assets</li>
+                    <li>Priority updates on new content</li>
+                    <li>Early access to future tutorials</li>
+                    <li>Certificate of completion</li>
+                    <li>Project review services</li>
+                    <li>Source code downloads</li>
+                    <li>Unity asset store discounts</li>
+                    <li>Job placement assistance</li>
+                </ul>
+                <a href="#" class="button diamond-button">Get Premium Access</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
